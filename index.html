@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Muhammad Ilham Syafaudin - Python Developer, Web Developer, dan Linux Enthusiast.">
+  <title>Muhammad Ilham Syafaudin | Developer Portfolio</title>
+  <link rel="stylesheet" href="./css/output.css">
+</head>
+<body class="selection:bg-blue-500 selection:text-white">
+
+  <!-- NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 rounded-2xl neu-flat transition-all duration-300">
+      <a href="#hero" class="font-mono font-bold tracking-wider text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg p-1">
+        MI SYAFAUDIN
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="#home" class="nav-link text-sm font-medium hover:text-blue-500 transition-colors">Home</a>
+        <a href="#about" class="nav-link text-sm font-medium hover:text-blue-500 transition-colors">About</a>
+        <a href="#skills" class="nav-link text-sm font-medium hover:text-blue-500 transition-colors">Skills</a>
+        <a href="#projects" class="nav-link text-sm font-medium hover:text-blue-500 transition-colors">Projects</a>
+        <a href="#journey" class="nav-link text-sm font-medium hover:text-blue-500 transition-colors">Journey</a>
+        <a href="#contact" class="nav-link text-sm font-medium hover:text-blue-500 transition-colors">Contact</a>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center space-x-3">
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="neu-btn p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <span id="theme-icon-light" class="hidden">☀️</span>
+          <span id="theme-icon-dark" class="hidden">🌙</span>
+        </button>
+
+        <button id="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" class="md:hidden neu-btn p-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Nav Modal -->
+    <div id="mobile-menu" class="hidden md:hidden mt-3 max-w-7xl mx-auto rounded-2xl neu-card p-6 opacity-0">
+      <div class="flex flex-col space-y-4 text-center">
+        <a href="#home" class="mobile-nav-link text-base font-medium py-2 rounded-lg hover:text-blue-500">Home</a>
+        <a href="#about" class="mobile-nav-link text-base font-medium py-2 rounded-lg hover:text-blue-500">About</a>
+        <a href="#skills" class="mobile-nav-link text-base font-medium py-2 rounded-lg hover:text-blue-500">Skills</a>
+        <a href="#projects" class="mobile-nav-link text-base font-medium py-2 rounded-lg hover:text-blue-500">Projects</a>
+        <a href="#journey" class="mobile-nav-link text-base font-medium py-2 rounded-lg hover:text-blue-500">Journey</a>
+        <a href="#contact" class="mobile-nav-link text-base font-medium py-2 rounded-lg hover:text-blue-500">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="min-h-screen pt-32 pb-16 px-4 sm:px-8 max-w-7xl mx-auto flex items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
+      <!-- Info Column -->
+      <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+        <span class="hero-tag font-mono text-xs sm:text-sm px-3 py-1 rounded-md neu-pressed text-blue-500 font-semibold tracking-wider uppercase">
+          Welcome to my workspace
+        </span>
+        <h1 class="hero-title text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+          Hi, I'm <br class="hidden sm:block">
+          <span class="text-blue-500">Muhammad Ilham Syafaudin</span>
+        </h1>
+        <div class="hero-roles text-lg sm:text-xl font-mono text-slate-500 dark:text-slate-400 space-y-1">
+          <p>• Python Developer</p>
+          <p>• Web Developer</p>
+          <p>• Linux Enthusiast</p>
+        </div>
+        <p class="hero-desc text-base sm:text-lg max-w-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+          Saya tertarik pada pengembangan web, Python, Linux, dan teknologi jaringan. Saya terus belajar dan membangun berbagai project untuk mengembangkan kemampuan saya.
+        </p>
+        <div class="hero-cta flex flex-wrap gap-4 pt-2">
+          <a href="#projects" class="neu-btn px-6 py-3 rounded-xl font-medium text-sm text-blue-500 tracking-wide">
+            View My Projects
+          </a>
+          <a href="#contact" class="neu-btn px-6 py-3 rounded-xl font-medium text-sm tracking-wide">
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Profile Column -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="hero-avatar-wrap relative p-4 rounded-3xl neu-card max-w-sm sm:max-w-md w-full">
+          <div class="overflow-hidden rounded-2xl w-full aspect-[4/5] bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+            <img 
+              src="./assets/images/profile.jpg" 
+              alt="Foto Profil Muhammad Ilham Syafaudin" 
+              class="hero-avatar object-cover w-full h-full transform transition-transform duration-500 hover:scale-105"
+              onerror="this.onerror=null; this.src=''; this.parentElement.innerHTML='<span class=\'font-mono text-sm text-slate-400\'>assets/images/profile.jpg</span>';"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="reveal-header text-center mb-16">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">About Me</h2>
+      <div class="h-1 w-12 bg-blue-500 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Metadata Side -->
+      <div class="lg:col-span-5 neu-card p-6 sm:p-8 rounded-2xl space-y-6">
+        <h3 class="font-mono text-sm tracking-wider uppercase text-blue-500 font-semibold">Data Pribadi & Akademik</h3>
+        <dl class="space-y-4 text-sm sm:text-base">
+          <div>
+            <dt class="text-slate-400 text-xs font-mono uppercase">Nama Lengkap</dt>
+            <dd class="font-semibold text-base mt-0.5">Muhammad Ilham Syafaudin</dd>
+          </div>
+          <div>
+            <dt class="text-slate-400 text-xs font-mono uppercase">Tempat Lahir</dt>
+            <dd class="font-semibold mt-0.5">Bojonegoro</dd>
+          </div>
+          <div>
+            <dt class="text-slate-400 text-xs font-mono uppercase">Domisili</dt>
+            <dd class="font-semibold mt-0.5">Gresik</dd>
+          </div>
+          <div>
+            <dt class="text-slate-400 text-xs font-mono uppercase">Pendidikan</dt>
+            <dd class="font-semibold mt-0.5">SMK Sunan Drajat Lamongan</dd>
+            <dd class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Teknik Komputer & Jaringan</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Narrative Side -->
+      <div class="lg:col-span-7 neu-card p-6 sm:p-8 rounded-2xl flex flex-col justify-center space-y-4 leading-relaxed text-sm sm:text-base text-slate-600 dark:text-slate-300">
+        <p>
+          Saya mulai tertarik dengan komputer sejak kelas 6 SD. Ketertarikan awal ini berkembang menjadi fokus eksplorasi teknis yang mendalam pada perangkat lunak dan infrastruktur jaringan.
+        </p>
+        <p>
+          Saat berada di bangku SMK, saya mulai mempelajari dasar HTML serta aktif berpartisipasi dalam kompetisi akademik:
+        </p>
+        <ul class="list-disc list-inside space-y-1 pl-2 text-slate-700 dark:text-slate-200">
+          <li>Lomba Blog tingkat Kecamatan Paciran</li>
+          <li>Kompetisi siswa SMK tingkat Kabupaten Lamongan bidang IT</li>
+        </ul>
+        <p>
+          Saya kemudian tertarik mempelajari Python karena sintaksnya mudah dipahami dan terasa dekat dengan bahasa manusia. Sejak saat itu, Python menjadi fondasi inti saya dalam mendalami pemrograman web dan automasi backend.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY JOURNEY TIMELINE -->
+  <section id="journey" class="py-24 px-4 sm:px-8 max-w-5xl mx-auto">
+    <div class="reveal-header text-center mb-16">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">My Journey</h2>
+      <div class="h-1 w-12 bg-blue-500 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="relative border-l-2 border-slate-300 dark:border-slate-800 ml-4 sm:ml-32 space-y-12">
+      <!-- Item 1 -->
+      <div class="timeline-step relative pl-8 sm:pl-10">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-200 dark:ring-slate-900"></div>
+        <span class="hidden sm:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-blue-500 uppercase">Awal Mula</span>
+        <div class="neu-card p-5 rounded-xl">
+          <span class="sm:hidden font-mono text-xs font-bold text-blue-500 uppercase">SD</span>
+          <h3 class="text-lg font-bold">Eksplorasi Komputer</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Mulai tertarik dengan dunia komputer dan komputasi sejak duduk di kelas 6 SD.</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="timeline-step relative pl-8 sm:pl-10">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-200 dark:ring-slate-900"></div>
+        <span class="hidden sm:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-blue-500 uppercase">Vokasi</span>
+        <div class="neu-card p-5 rounded-xl">
+          <span class="sm:hidden font-mono text-xs font-bold text-blue-500 uppercase">SMK</span>
+          <h3 class="text-lg font-bold">SMK Sunan Drajat Lamongan</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Fokus pada kejuruan Teknik Komputer & Jaringan (TKJ), mendalami dasar arsitektur jaringan dan sistem.</p>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="timeline-step relative pl-8 sm:pl-10">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-200 dark:ring-slate-900"></div>
+        <span class="hidden sm:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-blue-500 uppercase">Kompetisi</span>
+        <div class="neu-card p-5 rounded-xl">
+          <h3 class="text-lg font-bold">Kompetisi IT & Pembuatan Blog</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Mengikuti lomba Blog tingkat Kecamatan Paciran dan kompetisi siswa SMK tingkat Kabupaten Lamongan bidang IT.</p>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="timeline-step relative pl-8 sm:pl-10">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-200 dark:ring-slate-900"></div>
+        <span class="hidden sm:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-blue-500 uppercase">Bahasa Inti</span>
+        <div class="neu-card p-5 rounded-xl">
+          <h3 class="text-lg font-bold">Pendalaman Python</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Mendalami pemrograman Python secara komprehensif berkat sintaksis logis yang menyerupai bahasa manusia.</p>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="timeline-step relative pl-8 sm:pl-10">
+        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-200 dark:ring-slate-900"></div>
+        <span class="hidden sm:block absolute -left-32 top-1 w-24 text-right font-mono text-xs font-bold text-blue-500 uppercase">Ekosistem</span>
+        <div class="neu-card p-5 rounded-xl">
+          <h3 class="text-lg font-bold">Web, Backend & Infrastruktur Linux</h3>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Mengintegrasikan Web Frontend (HTML, CSS, JS, Tailwind), Backend (Django, Flask, MySQL), serta implementasi Linux (Debian, Ubuntu, Kali, Arch, Bash).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="reveal-header text-center mb-16">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">My Skills</h2>
+      <div class="h-1 w-12 bg-blue-500 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Frontend -->
+      <div class="neu-card p-6 rounded-2xl skill-group">
+        <h3 class="text-base font-mono font-bold uppercase tracking-wider text-blue-500 mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+          Frontend Development
+        </h3>
+        <div class="space-y-3 text-sm">
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">HTML5 / CSS3</span>
+            <span class="text-xs text-slate-400 font-mono">Semantic & Modern</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">JavaScript</span>
+            <span class="text-xs text-slate-400 font-mono">ES6+ / Vanilla</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Tailwind CSS</span>
+            <span class="text-xs text-slate-400 font-mono">Utility-First</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Bootstrap</span>
+            <span class="text-xs text-slate-400 font-mono">Responsive UI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="neu-card p-6 rounded-2xl skill-group">
+        <h3 class="text-base font-mono font-bold uppercase tracking-wider text-blue-500 mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+          Backend Development
+        </h3>
+        <div class="space-y-3 text-sm">
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Django</span>
+            <span class="text-xs text-slate-400 font-mono">Web Framework</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Flask</span>
+            <span class="text-xs text-slate-400 font-mono">Microframework</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">MySQL</span>
+            <span class="text-xs text-slate-400 font-mono">Relational DB</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Programming -->
+      <div class="neu-card p-6 rounded-2xl skill-group">
+        <h3 class="text-base font-mono font-bold uppercase tracking-wider text-blue-500 mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+          Programming
+        </h3>
+        <div class="space-y-3 text-sm">
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Python</span>
+            <span class="text-xs text-slate-400 font-mono">Core & Scripting</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">JavaScript</span>
+            <span class="text-xs text-slate-400 font-mono">DOM & Web Logic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linux -->
+      <div class="neu-card p-6 rounded-2xl skill-group">
+        <h3 class="text-base font-mono font-bold uppercase tracking-wider text-blue-500 mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+          Linux
+        </h3>
+        <div class="space-y-3 text-sm">
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Kali Linux / Debian</span>
+            <span class="text-xs text-slate-400 font-mono">Security & Base</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Ubuntu / Arch Linux</span>
+            <span class="text-xs text-slate-400 font-mono">Distro Management</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Bash</span>
+            <span class="text-xs text-slate-400 font-mono">Automation Shell</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Networking -->
+      <div class="neu-card p-6 rounded-2xl skill-group">
+        <h3 class="text-base font-mono font-bold uppercase tracking-wider text-blue-500 mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+          Networking
+        </h3>
+        <div class="space-y-3 text-sm">
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Routing & Switching</span>
+            <span class="text-xs text-slate-400 font-mono">TCP/IP, Subnetting</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Network Config</span>
+            <span class="text-xs text-slate-400 font-mono">TKJ Fundamentals</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="neu-card p-6 rounded-2xl skill-group">
+        <h3 class="text-base font-mono font-bold uppercase tracking-wider text-blue-500 mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+          Tools & Workflow
+        </h3>
+        <div class="space-y-3 text-sm">
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Git & GitHub</span>
+            <span class="text-xs text-slate-400 font-mono">Version Control</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">VS Code / Sublime</span>
+            <span class="text-xs text-slate-400 font-mono">Editors</span>
+          </div>
+          <div class="neu-pressed p-3 rounded-xl flex justify-between items-center">
+            <span class="font-semibold">Anaconda</span>
+            <span class="text-xs text-slate-400 font-mono">Python Env</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+    <div class="reveal-header text-center mb-16">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Featured Projects</h2>
+      <div class="h-1 w-12 bg-blue-500 mx-auto mt-3 rounded-full"></div>
+      <p class="text-xs font-mono text-slate-400 mt-2">[ Placeholder projects - ganti konten berikut dengan project aktual Anda ]</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project 01 -->
+      <article class="project-card neu-card rounded-2xl overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-full aspect-video bg-slate-200 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800 flex items-center justify-center">
+            <span class="font-mono text-xs text-slate-400">assets/images/project-01.jpg</span>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-mono text-blue-500 font-bold tracking-widest uppercase">Project 01</span>
+            <h3 class="text-xl font-bold mt-1 mb-2">Web Application Engine</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
+              Aplikasi web modular yang dirancang untuk otomasi pengelolaan data dengan kontrol hak akses terpusat.
+            </p>
+            <div class="text-xs font-mono text-slate-400 mb-6">
+              Tech: Python / Django / Tailwind / MySQL
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0 flex gap-3">
+          <a href="#" class="neu-btn px-4 py-2 rounded-xl text-xs font-semibold flex-1 text-center">View Project</a>
+          <a href="#" class="neu-btn px-4 py-2 rounded-xl text-xs font-semibold flex-1 text-center">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Project 02 -->
+      <article class="project-card neu-card rounded-2xl overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-full aspect-video bg-slate-200 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800 flex items-center justify-center">
+            <span class="font-mono text-xs text-slate-400">assets/images/project-02.jpg</span>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-mono text-blue-500 font-bold tracking-widest uppercase">Project 02</span>
+            <h3 class="text-xl font-bold mt-1 mb-2">Network Automation Utility</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
+              Koleksi skrip otomatisasi CLI untuk monitoring status node jaringan dan konfigurasi remote host.
+            </p>
+            <div class="text-xs font-mono text-slate-400 mb-6">
+              Tech: Python / Bash / Linux Sockets
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0 flex gap-3">
+          <a href="#" class="neu-btn px-4 py-2 rounded-xl text-xs font-semibold flex-1 text-center">View Project</a>
+          <a href="#" class="neu-btn px-4 py-2 rounded-xl text-xs font-semibold flex-1 text-center">GitHub</a>
+        </div>
+      </article>
+
+      <!-- Project 03 -->
+      <article class="project-card neu-card rounded-2xl overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-full aspect-video bg-slate-200 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800 flex items-center justify-center">
+            <span class="font-mono text-xs text-slate-400">assets/images/project-03.jpg</span>
+          </div>
+          <div class="p-6">
+            <span class="text-xs font-mono text-blue-500 font-bold tracking-widest uppercase">Project 03</span>
+            <h3 class="text-xl font-bold mt-1 mb-2">Micro Service Backend</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
+              Layanan backend minimalis dan terisolasi dengan performa routing tinggi untuk pemrosesan endpoint data.
+            </p>
+            <div class="text-xs font-mono text-slate-400 mb-6">
+              Tech: Python / Flask / MySQL
+            </div>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0 flex gap-3">
+          <a href="#" class="neu-btn px-4 py-2 rounded-xl text-xs font-semibold flex-1 text-center">View Project</a>
+          <a href="#" class="neu-btn px-4 py-2 rounded-xl text-xs font-semibold flex-1 text-center">GitHub</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- GITHUB ACTIVITY SECTION -->
+  <section id="github-activity" class="py-24 px-4 sm:px-8 max-w-5xl mx-auto">
+    <div class="reveal-header text-center mb-12">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">GitHub Activity</h2>
+      <div class="h-1 w-12 bg-blue-500 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="neu-card p-6 sm:p-8 rounded-2xl space-y-6">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <h3 class="font-bold text-lg">Contribution Matrix & Summary</h3>
+          <p class="text-xs font-mono text-slate-400 mt-0.5">Static local preview</p>
+        </div>
+        <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" class="neu-btn px-5 py-2.5 rounded-xl font-mono text-xs font-semibold text-blue-500 inline-block">
+          Visit My GitHub &rarr;
+        </a>
+      </div>
+
+      <!-- Static Grid Placeholder for GitHub contributions -->
+      <div class="neu-pressed p-4 rounded-xl overflow-x-auto">
+        <div class="min-w-[600px] flex flex-col space-y-1.5">
+          <div class="grid grid-flow-col grid-rows-7 gap-1.5 justify-start">
+            <!-- Simulated contribution nodes -->
+            <div class="w-3 h-3 rounded-sm bg-blue-500/20"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/40"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/80"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/20"></div>
+            <div class="w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/60"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500"></div>
+            <!-- Duplicated blocks for placeholder visual -->
+            <div class="w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/20"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/20"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/40"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/60"></div>
+            <div class="w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/80"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/40"></div>
+            <div class="w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700"></div>
+            <div class="w-3 h-3 rounded-sm bg-slate-300 dark:bg-slate-700"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/60"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/40"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500"></div>
+            <div class="w-3 h-3 rounded-sm bg-blue-500/20"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 text-center">
+        <div class="neu-flat p-4 rounded-xl">
+          <div class="font-mono text-xl font-bold text-blue-500">20+</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase font-mono">Repositories</div>
+        </div>
+        <div class="neu-flat p-4 rounded-xl">
+          <div class="font-mono text-xl font-bold text-blue-500">100%</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase font-mono">Open Code</div>
+        </div>
+        <div class="neu-flat p-4 rounded-xl col-span-2 sm:col-span-1">
+          <div class="font-mono text-xl font-bold text-blue-500">Continuous</div>
+          <div class="text-xs text-slate-400 mt-1 uppercase font-mono">Integration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-24 px-4 sm:px-8 max-w-4xl mx-auto">
+    <div class="reveal-header text-center mb-16">
+      <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Let's Work Together</h2>
+      <div class="h-1 w-12 bg-blue-500 mx-auto mt-3 rounded-full"></div>
+    </div>
+
+    <div class="neu-card p-6 sm:p-10 rounded-2xl space-y-8">
+      <p class="text-center text-sm sm:text-base text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
+        Tertarik untuk berkolaborasi dalam pengembangan sistem, otomasi backend, atau konfigurasi infrastruktur Linux? Hubungi saya melalui kanal di bawah ini.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono">
+        <div class="neu-pressed p-4 rounded-xl flex items-center space-x-3">
+          <span class="text-blue-500 font-bold">Mail:</span>
+          <span class="text-slate-600 dark:text-slate-300 break-all">your@email.com</span>
+        </div>
+        <div class="neu-pressed p-4 rounded-xl flex items-center space-x-3">
+          <span class="text-blue-500 font-bold">GH:</span>
+          <span class="text-slate-600 dark:text-slate-300 break-all">github.com/username</span>
+        </div>
+        <div class="neu-pressed p-4 rounded-xl flex items-center space-x-3">
+          <span class="text-blue-500 font-bold">IN:</span>
+          <span class="text-slate-600 dark:text-slate-300 break-all">linkedin.com/in/username</span>
+        </div>
+        <div class="neu-pressed p-4 rounded-xl flex items-center space-x-3">
+          <span class="text-blue-500 font-bold">IG:</span>
+          <span class="text-slate-600 dark:text-slate-300 break-all">instagram.com/username</span>
+        </div>
+      </div>
+
+      <div class="text-center pt-4">
+        <a href="mailto:your@email.com" class="neu-btn inline-block px-8 py-3.5 rounded-xl font-medium text-sm text-blue-500 tracking-wide focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-4 border-t border-slate-200 dark:border-slate-800 text-center text-xs font-mono text-slate-500 dark:text-slate-400 space-y-2">
+    <p>&copy; 2026 Muhammad Ilham Syafaudin</p>
+    <p>Built with passion &amp; code.</p>
+  </footer>
+
+  <!-- VENDOR GSAP (LOCAL) -->
+  <script src="./js/vendor/gsap.min.js"></script>
+  <script src="./js/vendor/ScrollTrigger.min.js"></script>
+
+  <!-- APP SCRIPTS -->
+  <script src="./js/main.js"></script>
+  <script src="./js/animations.js"></script>
+</body>
+</html>
