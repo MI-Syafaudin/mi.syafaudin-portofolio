@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateGitHubChartTheme(isDark);
   }
 
-  // Cek preferensi tersimpan di localStorage atau sistem OS
   const savedTheme = localStorage.getItem('theme');
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const initialIsDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
@@ -129,4 +128,124 @@ document.addEventListener('DOMContentLoaded', () => {
         repoElem.textContent = '2+';
       }
     });
+
+  // --- 5. CERTIFICATE POPUP MODAL LOGIC ---
+  const certModal = document.getElementById('cert-modal');
+  const certModalCard = document.getElementById('cert-modal-card');
+  const certModalOverlay = document.getElementById('cert-modal-overlay');
+  const certModalClose = document.getElementById('cert-modal-close');
+  const certModalDismiss = document.getElementById('cert-modal-dismiss-btn');
+  const certGallery = document.getElementById('cert-modal-gallery');
+  const certTitle = document.getElementById('cert-modal-title');
+  const certIssuer = document.getElementById('cert-modal-issuer');
+  const certDesc = document.getElementById('cert-modal-desc');
+
+  const openCertButtons = document.querySelectorAll('.open-cert-btn');
+
+  function openModal(btn) {
+    if (!certModal) return;
+
+    const title = btn.getAttribute('data-cert-title') || 'Certificate Preview';
+    const issuer = btn.getAttribute('data-cert-issuer') || '';
+    const desc = btn.getAttribute('data-cert-desc') || '';
+    const imagesStr = btn.getAttribute('data-cert-images') || '';
+    const images = imagesStr.split(',').map(s => s.trim()).filter(Boolean);
+
+    certTitle.textContent = title;
+    certIssuer.textContent = issuer;
+    certDesc.textContent = desc;
+
+    certGallery.innerHTML = '';
+
+    if (images.length === 2) {
+      certGallery.className = 'my-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center';
+    } else {
+      certGallery.className = 'my-6 grid grid-cols-1 gap-4 items-center justify-center';
+    }
+
+    if (images.length === 0) {
+      const fallback = document.createElement('div');
+      fallback.className = 'neu-pressed p-8 rounded-2xl text-center text-xs font-mono text-slate-400 w-full';
+      fallback.textContent = 'Preview gambar sertifikat belum tersedia.';
+      certGallery.appendChild(fallback);
+    } else {
+      images.forEach((imgSrc, idx) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'neu-pressed p-2 sm:p-3 rounded-2xl overflow-hidden bg-slate-200/50 dark:bg-slate-900/50 flex items-center justify-center';
+        
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = `${title} - Gambar ${idx + 1}`;
+        img.className = 'w-full h-auto max-h-[50vh] object-contain rounded-xl transition duration-300 hover:scale-[1.02]';
+        img.loading = 'lazy';
+        img.onerror = function() {
+          this.onerror = null;
+          this.parentElement.innerHTML = `<span class="p-4 text-xs font-mono text-slate-400">File tidak ditemukan: ${imgSrc}</span>`;
+        };
+        
+        wrapper.appendChild(img);
+        certGallery.appendChild(wrapper);
+      });
+    }
+
+    certModal.classList.remove('hidden');
+    certModal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+
+    if (window.gsap) {
+      gsap.fromTo(certModal, 
+        { opacity: 0 }, 
+        { opacity: 1, duration: 0.25, ease: 'power2.out' }
+      );
+      gsap.fromTo(certModalCard, 
+        { scale: 0.92, y: 20, opacity: 0 }, 
+        { scale: 1, y: 0, opacity: 1, duration: 0.35, ease: 'back.out(1.4)' }
+      );
+    }
+  }
+
+  function closeModal() {
+    if (!certModal) return;
+
+    if (window.gsap) {
+      gsap.to(certModalCard, {
+        scale: 0.94,
+        y: 10,
+        opacity: 0,
+        duration: 0.2,
+        ease: 'power2.in'
+      });
+      gsap.to(certModal, {
+        opacity: 0,
+        duration: 0.2,
+        ease: 'power2.in',
+        onComplete: () => {
+          certModal.classList.add('hidden');
+          certModal.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+      });
+    } else {
+      certModal.classList.add('hidden');
+      certModal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  }
+
+  openCertButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(btn);
+    });
+  });
+
+  if (certModalClose) certModalClose.addEventListener('click', closeModal);
+  if (certModalDismiss) certModalDismiss.addEventListener('click', closeModal);
+  if (certModalOverlay) certModalOverlay.addEventListener('click', closeModal);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && certModal && !certModal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
 });

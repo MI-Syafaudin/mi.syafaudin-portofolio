@@ -157,20 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
       ease: "power2.out"
     });
 
-    // GitHub Section Stagger Reveal
-    gsap.from('#github-activity .neu-card, #github-activity .neu-flat', {
-      scrollTrigger: {
-        trigger: '#github-activity',
-        start: 'top 75%',
-        toggleActions: 'play none none none'
-      },
-      opacity: 0,
-      y: 25,
-      stagger: 0.1,
-      duration: 0.6,
-      ease: 'power2.out'
-    });
-
     // Contact Section Entrance Animation
     const contactTimeline = gsap.timeline({
       scrollTrigger: {
@@ -201,4 +187,5 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'back.out(1.5)'
       }, '-=0.2');
   }
+
 });
