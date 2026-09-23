@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const certTitle = document.getElementById('cert-modal-title');
   const certIssuer = document.getElementById('cert-modal-issuer');
   const certDesc = document.getElementById('cert-modal-desc');
+  const certLink = document.getElementById('cert-modal-link');
 
   const openCertButtons = document.querySelectorAll('.open-cert-btn');
 
@@ -148,12 +149,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = btn.getAttribute('data-cert-title') || 'Certificate Preview';
     const issuer = btn.getAttribute('data-cert-issuer') || '';
     const desc = btn.getAttribute('data-cert-desc') || '';
+    const link = btn.getAttribute('data-cert-link') || '';
     const imagesStr = btn.getAttribute('data-cert-images') || '';
     const images = imagesStr.split(',').map(s => s.trim()).filter(Boolean);
 
     certTitle.textContent = title;
     certIssuer.textContent = issuer;
     certDesc.textContent = desc;
+
+    // Handle link verifikasi eksternal (misal: Credly / Badgr)
+    if (certLink) {
+      if (link && link.trim() !== '') {
+        certLink.href = link;
+        certLink.classList.remove('hidden');
+        certLink.classList.add('inline-flex');
+      } else {
+        certLink.href = '#';
+        certLink.classList.add('hidden');
+        certLink.classList.remove('inline-flex');
+      }
+    }
 
     certGallery.innerHTML = '';
 
